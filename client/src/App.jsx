@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const API = 'http://localhost:5000/api/contacts'
+const API = 'https://contact-manager-app-b01w.onrender.com/api/contacts'
 
 function App() {
   const [contacts, setContacts] = useState([])
@@ -59,7 +59,7 @@ function App() {
       {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: 36 }}>
         <h1 style={{ color: '#fff', fontSize: 36, fontWeight: 700, margin: 0, letterSpacing: '-0.5px' }}>
-          📋 Contact Manager
+           Contact Manager
         </h1>
         <p style={{ color: 'rgba(255,255,255,0.75)', marginTop: 8, fontSize: 15 }}>
           Manage your contacts in one place
@@ -71,14 +71,14 @@ function App() {
         {/* Form Card */}
         <div style={{ background: '#fff', borderRadius: 16, padding: 28, marginBottom: 24, boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
           <h2 style={{ margin: '0 0 20px', fontSize: 18, color: '#1e1b4b', fontWeight: 600 }}>
-            {editId ? '✏️ Edit Contact' : '➕ Add New Contact'}
+            {editId ? ' Edit Contact' : ' Add New Contact'}
           </h2>
           <form onSubmit={handleSubmit}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
               <div>
                 <label style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Full Name *</label>
                 <input
-                  placeholder="e.g. John Doe"
+                  placeholder="Your Name"
                   value={form.name}
                   onChange={e => setForm({...form, name: e.target.value})}
                   required
@@ -90,7 +90,7 @@ function App() {
               <div>
                 <label style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Phone</label>
                 <input
-                  placeholder="e.g. 9876543210"
+                  placeholder="Phone No."
                   value={form.phone}
                   onChange={e => setForm({...form, phone: e.target.value})}
                   style={{ width: '100%', marginTop: 4, padding: '10px 12px', borderRadius: 8, border: '1.5px solid #e5e7eb', fontSize: 14, outline: 'none', boxSizing: 'border-box' }}
@@ -102,7 +102,7 @@ function App() {
             <div style={{ marginBottom: 16 }}>
               <label style={{ fontSize: 12, fontWeight: 600, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email Address *</label>
               <input
-                placeholder="e.g. john@example.com"
+                placeholder="youremail@gmail.com"
                 value={form.email}
                 onChange={e => setForm({...form, email: e.target.value})}
                 required
@@ -113,7 +113,7 @@ function App() {
             </div>
             <div style={{ display: 'flex', gap: 10 }}>
               <button type="submit" style={{ flex: 1, padding: '11px', background: editId ? 'linear-gradient(135deg, #f59e0b, #d97706)' : 'linear-gradient(135deg, #6366f1, #8b5cf6)', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontSize: 14, fontWeight: 600, letterSpacing: '0.3px' }}>
-                {editId ? '✔ Update Contact' : '+ Add Contact'}
+                {editId ? ' Update Contact' : 'Add Contact'}
               </button>
               {editId && (
                 <button type="button" onClick={() => { setEditId(null); setForm({ name: '', email: '', phone: '' }) }}
@@ -128,7 +128,7 @@ function App() {
         {/* Search + Count */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
           <input
-            placeholder="🔍  Search by name or email..."
+            placeholder="Search by name or email..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             style={{ flex: 1, padding: '10px 14px', borderRadius: 10, border: 'none', fontSize: 14, outline: 'none', background: 'rgba(255,255,255,0.9)', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
@@ -160,7 +160,7 @@ function App() {
               {/* Info */}
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontWeight: 600, fontSize: 15, color: '#1e1b4b', marginBottom: 3 }}>{c.name}</div>
-                <div style={{ fontSize: 13, color: '#6b7280' }}>✉ {c.email}{c.phone && ` · 📞 ${c.phone}`}</div>
+                <div style={{ fontSize: 13, color: '#6b7280' }}>✉ {c.email}{c.phone && ` ·  ${c.phone}`}</div>
               </div>
 
               {/* Buttons */}
