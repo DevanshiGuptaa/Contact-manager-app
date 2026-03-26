@@ -131,7 +131,7 @@ function App() {
             placeholder="Search by name or email..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            style={{ flex: 1, padding: '10px 14px', borderRadius: 10, border: 'none', fontSize: 14, outline: 'none', background: 'rgba(255,255,255,0.9)', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+            style={{ flex: 1, padding: '10px 14px', borderRadius: 10, border: 'none', fontSize: 14, outline: 'none', background: 'rgba(255,255,255,0.2)', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
           />
           <div style={{ background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '10px 16px', borderRadius: 10, fontSize: 13, fontWeight: 600, whiteSpace: 'nowrap' }}>
             {filtered.length} contact{filtered.length !== 1 ? 's' : ''}
